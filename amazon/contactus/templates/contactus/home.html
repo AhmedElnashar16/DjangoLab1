@@ -1,0 +1,23 @@
+<body style="color:white;background-color: black;">
+<a href="contactus">contactus</a>
+<a href='http://127.0.0.1:8000/'>home</a>
+<a href='about'>about</a>
+<center >
+<form method="POST" action="">
+    {% csrf_token %}
+   <label for="email">Email:</label><br>
+  <input type="email" id="email" name="Email" value= '{% if submitbutton == "Submit" %} {{ firstname }} {% endif %}'/><br>
+    <label for="comment">comment:</label><br>
+  <input type="text" id="comment" name="Comment" value= '{% if submitbutton == "Submit" %} {{ firstname }} {% endif %}'/><br>
+  <button type="Submit" name="Submit" value="Submit">Submit to see your data</button>
+</form>
+    {% if submitbutton == "Submit"  %}
+<h1 > Your Email is {{ Email }}</h1>
+<h1> Your comment is {{ Comment }}</h1>
+
+{% endif %}
+</center>
+</body>
+
+
+
